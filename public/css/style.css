@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
+
+body {
+    background-image: linear-gradient(to right, rgb(171, 252, 255), rgb(191, 251, 253), rgb(203, 248, 250), rgb(214, 240, 241));
+    font-family: 'Poppins', sans-serif;
+}
+        
+#icon-button {
+    transition: all 0.3s;
+}
+
+#icon-button:hover {
+    box-shadow: 3px 3px 5px rgb(149, 149, 149), -3px -3px 5px rgb(149, 149, 149);
+    transform: scale(1.08);
+}
+
+.search-form {
+    transform: scaleX(0);
+    transition: all 0.1s ease-in;
+}
+
+.search-form.form-active {
+    transform: scaleX(1);
+}
+
+.badge {
+    transition: all 0.2s ease-in;
+}
+
+.badge:hover {
+     box-shadow: 1px 1px 5px rgb(184, 184, 184), -1px -1px 5px rgb(184, 184, 184) ;
+}
+
+.sosmed .fa-youtube, .fa-instagram, .fa-github { transition: 0.3s ease-in; }
+
+.fa-youtube:hover {
+     background-color: white;
+     padding: 5px;
+     border-radius: 50%;
+    color: rgb(255, 0, 0);
+ }
+
+.fa-instagram:hover {
+    background-color: white;
+    padding: 5px;
+    border-radius: 50%;
+    font-weight: 700;
+    color: rgb(144, 0, 211);
+}
+
+.fa-github:hover {
+    background-color: white;
+    padding: 5px;
+    border-radius: 50%;
+    color: rgb(51, 51, 51);
+}
+
+
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.grid-form {
+    display: grid;
+    grid-template-areas: 
+    'name username';
+}
+
+.grid-form .name-reg {
+    grid-area: name;
+    width: 98%;
+}
+
+.grid-form .username-reg {
+    grid-area: username;
+}
