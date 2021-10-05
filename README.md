@@ -1,4 +1,4 @@
-#MyNotes Project
+# MyNotes Project
 
 Project website sederhana yang isinya semua catatan mata pelajaran sekolah.(masih belum selesai)
 
