@@ -3,7 +3,7 @@
 @section('container')
 
 @if ($lessons->count())
-    <h1 class="mb-5 text-center">{{ $title }}</h1>
+    <h1 class="my-5 text-center">{{ $title }}</h1>
 
     <div class="card mb-5 text-center">
 

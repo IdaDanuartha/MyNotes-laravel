@@ -7,10 +7,18 @@
 
     </div>
 
+    @if (session()->has('success'))
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+          {{ session('success') }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      @endif
+
+    <a href="/dashboard/posts/create" class="btn btn-primary mb-3"><i class="fas fa-plus"></i> Create New Post</a>
       <div class="table-responsive col-lg-10">
-        <table class="table table-striped table-dark table-sm">
+        <table class="table table-striped table-dark table-sm table-bordered">
           <thead>
-            <tr>
+            <tr class="text-center">
               <th scope="col">#</th>
               <th scope="col">Title</th>
               <th scope="col">Category</th>
@@ -21,13 +29,13 @@
               @foreach ($posts as $post)
 
                 <tr>
-                    <td>{{ $loop->iteration }}</td>
+                    <td class="text-center">{{ $loop->iteration }}</td>
                     <td>{{ $post->judul }}</td>
-                    <td>{{ $post->category->name }}</td>
-                    <td>
-                        <a href="/dashboard/posts/{{ $post->slug }}" class="badge bg-info text-dark"><span data-feather="eye"></span></a>
-                        <a href="" class="badge bg-warning text-dark"><span data-feather="edit"></span></a>
-                        <a href="" class="badge bg-danger"><span data-feather="trash-2"></span></a>
+                    <td class="text-center">{{ $post->category->name }}</td>
+                    <td class="text-center">
+                        <a href="/dashboard/posts/{{ $post->slug }}" class="badge bg-info text-dark me-1"><i class="fas fa-eye"></i></a>
+                        <a href="" class="badge bg-warning text-dark me-1"><i class="fas fa-edit"></i></a>
+                        <a href="" class="badge bg-danger"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
                   
@@ -37,3 +45,4 @@
         </div>
 
 @endsection
+

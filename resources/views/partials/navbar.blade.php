@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark p-3 sticky-top mb-4 bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark p-3 sticky-top bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand h1" href="/"><i class="fas fa-book-reader"></i> MyNotes</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">

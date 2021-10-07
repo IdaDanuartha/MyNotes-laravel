@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Category;
 use App\Models\Lessons;
 use Illuminate\Http\Request;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Str;
 
 class DashboardPostController extends Controller
 {
@@ -28,7 +31,9 @@ class DashboardPostController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.posts.create', [
+            'categories' => Category::all()
+        ]);
     }
 
     /**
@@ -39,7 +44,19 @@ class DashboardPostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'judul' => 'required|max:255',
+            'slug' => 'required|unique:lessons',
+            'category_id' => 'required',
+            'body' => 'required'
+        ]);
+
+        $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['kutipan'] = Str::limit(strip_tags($request->body), 180);
+
+        Lessons::create($validatedData);
+
+        return redirect('/dashboard/posts')->with('success', 'Postingan berhasil ditambahkan');
     }
 
     /**
@@ -87,5 +104,11 @@ class DashboardPostController extends Controller
     public function destroy(Post $post)
     {
         //
+    }
+
+    public function checkSlug(Request $request) {
+
+        $slug = SlugService::createSlug(Lessons::class, 'slug', $request->judul);
+        return response()->json(['slug' => $slug]);
     }
 }

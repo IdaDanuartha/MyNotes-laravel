@@ -27,10 +27,13 @@
         @yield('container')
       </div>
 
+      <section>
+        @yield('section')
+      </section>
+
   
 
-        <footer class="pt-5 bg-dark" style="margin-top: 180px;">
-          <div class="container">
+        <footer class="pt-5 bg-dark px-4" style="margin-top: 180px;">
           <div class="row">
             <div class="col-2">
               <h5 class="text-bold text-light">Category</h5>
@@ -46,32 +49,19 @@
               <h5  class="text-bold text-light">Author</h5>
               <ul class="nav flex-column">
                 <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Danuartha</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">???</a></li>
               </ul>
             </div>
       
             <div class="col-2">
-              <h5  class="text-bold text-light">More</h5>
+              <h5 class="text-bold text-light">More</h5>
               <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a href="/" class="nav-link p-0 text-muted">Home</a></li>
                 <li class="nav-item mb-2"><a href="/about" class="nav-link p-0 text-muted">About</a></li>
                 <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Contact</a></li>
-                <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
                 <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Site Map</a></li>
               </ul>
             </div>
-      
-            {{-- <div class="col-4 offset-1 text-light">
-              <form>
-                <h5>Subscribe to our newsletter</h5>
-                <p>Monthly digest of whats new and exciting from us.</p>
-                <div class="d-flex w-100 gap-2">
-                  <label for="newsletter1" class="visually-hidden">Email address</label>
-                  <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-                  <button class="btn btn-primary" type="button">Subscribe</button>
-                </div>
-              </form>
-            </div>
-          </div> --}}
+          </div>
       
           <div class="d-flex justify-content-between py-4 my-4 border-top">
             <p class="text-center text-muted">Copyright © 2021. MyNotes | Built by <a href="" class="text-decoration-none text-light text-bold">Danuartha</a></p>
@@ -81,7 +71,7 @@
               <li class="ms-4"><a href="https://github.com/IdaDanuartha" class="text-light fs-4 sosmed"><i class="fab fa-github"></i></a></li>
             </ul>
           </div>
-        </div>
+
         </footer>
 
 
