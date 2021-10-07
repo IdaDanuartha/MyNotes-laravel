@@ -33,15 +33,20 @@
           </div>
         </div>
         <a href="/dashboard/posts" class="btn btn-info text-dark me-1 mt-2"><i class="fas fa-long-arrow-alt-left"></i> Back</a>
-                <a href="" class="btn btn-warning text-dark me-1 mt-2"><i class="fas fa-edit"></i> Edit</a>
-                <a href="" class="btn btn-danger mt-2"><i class="fas fa-trash"></i> Delete</a>
+        <a href="/dashboard/posts/{{ $post->slug }}/edit" class="btn btn-warning text-dark me-1 mt-2"><i class="fas fa-edit"></i> Edit</a>
+
+        <form action="/dashboard/posts/{{ $post->slug }}" method="POST" class="d-inline">
+         @method('delete')
+         @csrf
+         <button class="btn btn-danger mt-2" onclick="return confirm('Are You Sure')"><i class="fas fa-trash"></i> Delete</button>
+        </form>
       
       <div class="row g-5 mt-2">
           <div class="col-md-9">
       
             <article class="blog-post">
               <h1 class="blog-post-title">{{ $post->judul }}</h1>
-              <p class="blog-post-meta"><small class="text-muted mb-3">{{ $post->created_at->diffForHumans() }} | by <a class="text-decoration-none" href="/less?author={{ $post->author->username }}">{{ $post->author->name }}</a></small> </p>
+              <p class="blog-post-meta"><small class="text-muted mb-3">{{ $post->created_at->diffForHumans() }} - by <a class="text-decoration-none" href="/less?author={{ $post->author->username }}">{{ $post->author->name }}</a></small> </p>
                 
               <p class="mt-4">{!! $post->body !!}</p>
 

@@ -67,6 +67,10 @@ class DashboardPostController extends Controller
      */
     public function show(Lessons $post)
     {
+        if($post->author->id !== auth()->user()->id) {
+            abort(403);
+        }
+
         return view('dashboard.layouts.show',[
             'post' => $post
         ]);
@@ -78,9 +82,16 @@ class DashboardPostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Lessons $post)
     {
-        //
+        if($post->author->id !== auth()->user()->id) {
+            abort(403);
+        }
+        
+        return view('dashboard.posts.edit', [
+            'post' => $post,
+            'categories' => Category::all()
+        ]);
     }
 
     /**
@@ -90,9 +101,27 @@ class DashboardPostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, Lessons $post)
     {
-        //
+        $rules = [
+            'judul' => 'required|max:255',
+            'category_id' => 'required',
+            'body' => 'required'
+        ];
+
+        if ($request->slug != $post->slug) {
+            $rules['slug'] = 'required|unique:lessons';
+        }
+
+        $validatedData = $request->validate($rules);
+
+        $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['kutipan'] = Str::limit(strip_tags($request->body), 180);
+
+        Lessons::where('id', $post->id)
+                ->update($validatedData);
+
+        return redirect('/dashboard/posts')->with('success', 'Postingan berhasil diubah');
     }
 
     /**
@@ -101,9 +130,10 @@ class DashboardPostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Lessons $post)
     {
-        //
+        Lessons::destroy($post->id);
+        return redirect('/dashboard/posts')->with('success', 'Postingan berhasil dihapus');
     }
 
     public function checkSlug(Request $request) {

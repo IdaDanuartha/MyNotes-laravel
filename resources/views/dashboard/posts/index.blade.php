@@ -8,7 +8,7 @@
     </div>
 
     @if (session()->has('success'))
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <div class="alert alert-success alert-dismissible fade show col-lg-10" role="alert">
           {{ session('success') }}
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
@@ -34,8 +34,14 @@
                     <td class="text-center">{{ $post->category->name }}</td>
                     <td class="text-center">
                         <a href="/dashboard/posts/{{ $post->slug }}" class="badge bg-info text-dark me-1"><i class="fas fa-eye"></i></a>
-                        <a href="" class="badge bg-warning text-dark me-1"><i class="fas fa-edit"></i></a>
-                        <a href="" class="badge bg-danger"><i class="fas fa-trash"></i></a>
+
+                        <a href="/dashboard/posts/{{ $post->slug }}/edit" class="badge bg-warning text-dark me-1"><i class="fas fa-edit"></i></a>
+
+                        <form action="/dashboard/posts/{{ $post->slug }}" method="POST" class="d-inline">
+                          @method('delete')
+                          @csrf
+                          <button class="badge bg-danger border-0" onclick="return confirm('Are You Sure')"><i class="fas fa-trash"></i></button>
+                        </form>
                     </td>
                 </tr>
                   

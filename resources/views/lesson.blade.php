@@ -18,7 +18,7 @@
       
             <article class="blog-post">
               <h1 class="blog-post-title">{{ $lesson->judul }}</h1>
-              <p class="blog-post-meta"><small class="text-muted mb-3">{{ $lesson->created_at->diffForHumans() }} | by <a class="text-decoration-none" href="/lessons?author={{ $lesson->author->username }}">{{ $lesson->author->name }}</a></small> </p>
+              <p class="blog-post-meta"><small class="text-muted mb-3">{{ $lesson->created_at->diffForHumans() }} - by <a class="text-decoration-none" href="/lessons?author={{ $lesson->author->username }}">{{ $lesson->author->name }}</a></small> </p>
                 
               <p class="mt-5">{!! $lesson->body !!}</p>
 

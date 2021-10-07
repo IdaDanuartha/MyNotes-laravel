@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
 
 body {
-    background-image: linear-gradient(to right, rgb(233, 233, 233), #eee, rgb(245, 245, 245));
+    background-image: linear-gradient(to right, rgb(177, 248, 255), rgb(208, 251, 255), rgb(233, 253, 255));
     font-family: 'Poppins', sans-serif;
 }
         
@@ -99,7 +99,7 @@ body {
 }
 
 .marketing .col-lg-6 .card:hover {
-    box-shadow: 3px 3px 5px rgb(251, 255, 36), -3px -3px 5px rgb(251, 255, 36);
+    box-shadow: 1px 1px 4px rgb(253, 255, 122), -1px -1px 4px rgb(253, 255, 122);
 }
 
 
@@ -128,7 +128,7 @@ body {
     width: 1px;
     height: 100%;
     border-right: 2px solid rgb(228, 24, 24);
-    animation: blink 0.3s infinite ease;
+    animation: blink 0.4s infinite ease;
 }
 
 @keyframes blink {

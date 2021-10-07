@@ -13,9 +13,8 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Lessons
-                </a>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-book-open"></i> Lessons</a>
+
                 <ul class="dropdown-menu position-absolute" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="/lessons?category=matematika">Matematika</a></li>
                 <li><a class="dropdown-item" href="/lessons?category=fisika">Fisika</a></li>
@@ -26,10 +25,10 @@
                 </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Exercises</a>
+              <a class="nav-link" href="#"><i class="fas fa-pencil-alt"></i> Exercises</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Games</a>
+              <a class="nav-link" href="#"><i class="fas fa-puzzle-piece"></i> Games</a>
             </li>
             
             </ul>
