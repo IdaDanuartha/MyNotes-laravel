@@ -1,6 +1,6 @@
 # MyNotes Project
 
-Project website sederhana yang isinya semua catatan mata pelajaran sekolah.(masih belum selesai)
+Project website sederhana yang isinya catatan mata pelajaran sekolah (masih belum selesai).
 
 Dibuat dengan :
 1. Laravel
