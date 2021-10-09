@@ -40,7 +40,7 @@
                         <form action="/dashboard/posts/{{ $post->slug }}" method="POST" class="d-inline">
                           @method('delete')
                           @csrf
-                          <button class="badge bg-danger border-0" onclick="return confirm('Are You Sure')"><i class="fas fa-trash"></i></button>
+                          <button class="badge bg-danger border-0 btn-delete" onclick="return confirm('Apakah anda yakin ingin menghapus postingan ini?')"><i class="fas fa-trash"></i></button>
                         </form>
                     </td>
                 </tr>

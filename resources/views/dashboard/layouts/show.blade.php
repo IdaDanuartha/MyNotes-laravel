@@ -2,51 +2,35 @@
 
 @section('container')
     
-    {{-- <div class="container">
-        <div class="row my-5">
-            <div class="col-lg-10">
-                <h1>{{ $post->judul }}</h1>
-
-                <a href="/dashboard/posts" class="btn btn-info text-dark me-1 mt-3"><i class="fas fa-long-arrow-alt-left"></i> Back</a>
-                <a href="" class="btn btn-warning text-dark me-1 mt-3"><i class="fas fa-edit"></i> Edit</a>
-                <a href="" class="btn btn-danger mt-3"><i class="fas fa-trash"></i> Delete</a>
-
-                <img class="img-fluid card-img-center my-4" src="https://source.unsplash.com/1200x500?{{ $post->category->name }}" alt="Thumbnail">
-
-                <article>
-                    {!! $post->body !!}
-                </article>
-            </div>
-        </div>
-        
-    </div> --}}
-
-
     <main class="container my-5">
-        <div class="p-4 p-md-5 text-white rounded bg-dark" style="background-image: url('https://source.unsplash.com/1200x500?{{ $post->category->name }}'); background-position: center; filter: brightness(90%);">
-          <div class="col-md-6 px-0">
-            <p class="display-6 fst-italic" style="padding: 20px 0 200px 20px;"><a href="" class="badge text-decoration-none 
-                {{ $post->category->name === "Matematika" ? 'btn-danger' : ''}} 
-                {{ $post->category->name === "Fisika" ? 'btn-warning text-dark' : ''}} 
-                {{ $post->category->name === "Kimia" ? 'btn-success' : ''}} 
-                {{ $post->category->name === "Biologi" ? 'btn-info text-dark' : ''}} position-absolute" style="left: 10px; top: 10px;">{{ $post->category->name }}</a></p>
-          </div>
-        </div>
-        <a href="/dashboard/posts" class="btn btn-info text-dark me-1 mt-2"><i class="fas fa-long-arrow-alt-left"></i> Back</a>
-        <a href="/dashboard/posts/{{ $post->slug }}/edit" class="btn btn-warning text-dark me-1 mt-2"><i class="fas fa-edit"></i> Edit</a>
+        @if ($post->image)
+            <img class="" src="{{ asset('storage/' . $post->image) }}" alt="Image" style="max-height: 500px; width: 100%; overflow: hidden;">
+        @else
+            <img class="" src="https://source.unsplash.com/1200x500?{{ $post->category->name }}" alt="Image" style="max-height: 500px; width: 100%; overflow: hidden;">
+        @endif
+       
+        <div class="mt-2">
+          <a href="/dashboard/posts" class="btn btn-info text-dark me-1"><i class="fas fa-long-arrow-alt-left"></i> Back</a>
+          <a href="/dashboard/posts/{{ $post->slug }}/edit" class="btn btn-warning text-dark me-1"><i class="fas fa-edit"></i> Edit</a>
 
-        <form action="/dashboard/posts/{{ $post->slug }}" method="POST" class="d-inline">
-         @method('delete')
-         @csrf
-         <button class="btn btn-danger mt-2" onclick="return confirm('Are You Sure')"><i class="fas fa-trash"></i> Delete</button>
-        </form>
+          <form action="/dashboard/posts/{{ $post->slug }}" method="POST" class="d-inline">
+          @method('delete')
+          @csrf
+          <button class="btn btn-danger" onclick="return confirm('Are You Sure')"><i class="fas fa-trash"></i> Delete</button>
+          </form>
+      </div>
       
       <div class="row g-5 mt-2">
           <div class="col-md-9">
       
             <article class="blog-post">
               <h1 class="blog-post-title">{{ $post->judul }}</h1>
-              <p class="blog-post-meta"><small class="text-muted mb-3">{{ $post->created_at->diffForHumans() }} - by <a class="text-decoration-none" href="/less?author={{ $post->author->username }}">{{ $post->author->name }}</a></small> </p>
+              <p class="blog-post-meta"><small class="text-muted mb-3">{{ $post->created_at->diffForHumans() }} - by <a class="text-secondary" href="/lessons?author={{ $post->author->username }}">{{ $post->author->name }}</a></small></p>
+
+              <a class="text-decoration-none {{ $post->category->name === "Matematika" ? 'text-danger' : ''}} 
+                {{ $post->category->name === "Fisika" ? 'text-warning' : ''}} 
+                {{ $post->category->name === "Kimia" ? 'text-success' : ''}} 
+                {{ $post->category->name === "Biologi" ? 'text-info' : ''}}" href="/lessons?category={{ $post->category->slug }}">#{{ $post->category->name }}</a>
                 
               <p class="mt-4">{!! $post->body !!}</p>
 
@@ -93,3 +77,4 @@
       
       </main>
 @endsection
+

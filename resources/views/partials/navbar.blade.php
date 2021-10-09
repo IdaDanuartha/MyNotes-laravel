@@ -4,7 +4,7 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas offcanvas-start bg-dark mobile-responsive" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header">
             <a class="navbar-brand offcanvas-title" href="/"><i class="fas fa-book-reader"></i> MyNotes</a>
             <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -35,7 +35,7 @@
 
             <i id="icon-button" class="bg-light rounded-circle fas fa-search" style="padding: 13px; cursor: pointer;"></i>
 
-            <form action="/lessons" method="GET" class="d-flex search-form position-absolute" style="top: 100px; right: 5px; width:20rem; height: 3rem;  transform-origin: right;">
+            <form action="/lessons" method="GET" class="d-flex search-form position-absolute" style="top: 100px; right: 5px; width:20rem; height: 3rem;  transform-origin: right;" id="search-form">
               @if (request('category')) 
                 <input type="hidden" name="category" value="{{ request('category') }}">
               @endif
@@ -51,7 +51,7 @@
 
             <div class="ms-3">
             @auth
-            <li class="nav-item dropdown">
+            <div class="nav-item dropdown" id="profile-button">
               <a href="/login" class="rounded-pill me-1" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="width: 100px"> <i class="fas fa-user-circle" style="font-size: 40px"></i></a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <li><p class="dropdown-item disabled">Halo, {{ auth()->user()->username }}</p></li>
@@ -65,9 +65,9 @@
                   </form>
                 </li>
               </ul>
-            </li>
+            </div>
             @else
-              <a href="/login" class="btn btn-primary rounded-pill me-1" style="width: 100px"><i class="fas fa-sign-in-alt"></i> Log In</a>
+              <a href="/login" class="btn btn-primary rounded-pill me-1" style="width: 100px" id="login-button"><i class="fas fa-sign-in-alt"></i> Log In</a>
             @endauth
             </div>
             
@@ -75,3 +75,4 @@
       </div>
     </div>
   </nav>
+

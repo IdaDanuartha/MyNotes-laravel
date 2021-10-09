@@ -3,22 +3,19 @@
 @section('container')
 
     <main class="container mt-4">
-        <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark" style="background-image: url('https://source.unsplash.com/1200x500?{{ $lesson->category->name }}'); background-position: center; filter: brightness(90%);">
-          <div class="col-md-6 px-0">
-            <p class="display-6 fst-italic" style="padding: 20px 0 200px 20px;"><a href="/lessons?category={{ $lesson->category->slug }}" class="badge text-decoration-none 
-                {{ $lesson->category->name === "Matematika" ? 'btn-danger' : ''}} 
-                {{ $lesson->category->name === "Fisika" ? 'btn-warning text-dark' : ''}} 
-                {{ $lesson->category->name === "Kimia" ? 'btn-success' : ''}} 
-                {{ $lesson->category->name === "Biologi" ? 'btn-info text-dark' : ''}} position-absolute" style="left: 10px; top: 10px;">{{ $lesson->category->name }}</a></p>
-          </div>
-        </div>
+      @if ($lesson->image)
+          <img class="" src="{{ asset('storage/' . $lesson->image) }}" alt="Image" style="overflow: hidden; max-height: 500px; width: 100%;">
+       @else
+          <img src="https://source.unsplash.com/1200x500?{{ $lesson->category->name }}" alt="Image" style="overflow: hidden; max-height: 500px; width: 100%;">
+                        
+      @endif      
       
       <div class="row g-5 mt-4">
           <div class="col-md-9">
       
             <article class="blog-post">
               <h1 class="blog-post-title">{{ $lesson->judul }}</h1>
-              <p class="blog-post-meta"><small class="text-muted mb-3">{{ $lesson->created_at->diffForHumans() }} - by <a class="text-decoration-none" href="/lessons?author={{ $lesson->author->username }}">{{ $lesson->author->name }}</a></small> </p>
+              <p class="blog-post-meta"><small class="text-muted mb-3">{{ $lesson->created_at->diffForHumans() }} - by <a class="text-secondary" href="/lessons?author={{ $lesson->author->username }}">{{ $lesson->author->name }}</a> - <a class="text-secondary" href="/lessons?category={{ $lesson->category->slug }}">{{ $lesson->category->name }}</a></small> </p>
                 
               <p class="mt-5">{!! $lesson->body !!}</p>
 

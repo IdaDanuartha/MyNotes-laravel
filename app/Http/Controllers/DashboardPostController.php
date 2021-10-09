@@ -8,6 +8,7 @@ use App\Models\Lessons;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardPostController extends Controller
 {
@@ -48,8 +49,14 @@ class DashboardPostController extends Controller
             'judul' => 'required|max:255',
             'slug' => 'required|unique:lessons',
             'category_id' => 'required',
+            'image' => 'image|file|max:1024',
             'body' => 'required'
         ]);
+
+        if ($request->file('image')) {
+            $validatedData['image'] = $request->file('image')->store('post-images');
+            
+        }
 
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['kutipan'] = Str::limit(strip_tags($request->body), 180);
@@ -106,6 +113,7 @@ class DashboardPostController extends Controller
         $rules = [
             'judul' => 'required|max:255',
             'category_id' => 'required',
+            'image' => 'image|file|max:1024',
             'body' => 'required'
         ];
 
@@ -114,6 +122,15 @@ class DashboardPostController extends Controller
         }
 
         $validatedData = $request->validate($rules);
+
+        if ($request->file('image')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+
+            $validatedData['image'] = $request->file('image')->store('post-images');
+            
+        }
 
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['kutipan'] = Str::limit(strip_tags($request->body), 180);
@@ -132,6 +149,10 @@ class DashboardPostController extends Controller
      */
     public function destroy(Lessons $post)
     {
+        if ($post->image) {
+            Storage::delete($post->image);
+        }
+
         Lessons::destroy($post->id);
         return redirect('/dashboard/posts')->with('success', 'Postingan berhasil dihapus');
     }

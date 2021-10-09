@@ -13,7 +13,7 @@
             <ul class="dropdown-menu position-absolute">
               <li><a class="dropdown-item disabled" href="#">Hai, {{ auth()->user()->username }}</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="/lessons"><i class="fas fa-blog"></i> Blog</a></li>
+              <li><a class="dropdown-item" href="/"><i class="fas fa-blog"></i> Blog</a></li>
 
               <li>
                 <form action="/logout" method="POST">

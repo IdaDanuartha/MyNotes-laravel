@@ -23,8 +23,8 @@
         <div class="col-lg-6 mt-4">
           <a href="/lessons?category=matematika">
           <div class="card text-white">
-            <img src="/img/math.jpg" alt="matematika">
-            <div class="card-img-overlay p-0 align-items-center d-flex" style="">
+            <img src="/img/math.jpg" alt="matematika" style="overflow: hidden; max-height: 320px;">
+            <div class="card-img-overlay p-0 align-items-center d-flex">
               <h2 class="card-title bg-danger text-center flex-fill">Matematika</h2>
             </div>
           </div>
@@ -34,8 +34,8 @@
         <div class="col-lg-6 mt-4">
           <a href="/lessons?category=fisika">
             <div class="card text-white">
-              <img src="/img/fisika.jpg" alt="fisika" height="312px">
-              <div class="card-img-overlay p-0 align-items-center d-flex" style="">
+              <img src="/img/fisika.jpg" alt="fisika" style="overflow: hidden; max-height: 320px;">
+              <div class="card-img-overlay p-0 align-items-center d-flex">
                 <h2 class="card-title bg-warning text-center flex-fill text-dark">Fisika</h2>
               </div>
             </div>
@@ -45,8 +45,8 @@
         <div class="col-lg-6 mt-4">
           <a href="/lessons?category=kimia">
             <div class="card text-white">
-              <img src="/img/kimia.jpg" alt="kimia" height="340px">
-              <div class="card-img-overlay p-0 align-items-center d-flex" style="">
+              <img src="/img/kimia.jpg" alt="kimia" style="overflow: hidden; max-height: 320px;">
+              <div class="card-img-overlay p-0 align-items-center d-flex">
                 <h2 class="card-title bg-success text-center flex-fill">Kimia</h2>
               </div>
             </div>
@@ -56,8 +56,8 @@
         <div class="col-lg-6 mt-4">
           <a href="/lessons?category=biologi">
             <div class="card text-white">
-              <img src="/img/biologi.jpg" alt="biologi">
-              <div class="card-img-overlay p-0 align-items-center d-flex" style="">
+              <img src="/img/biologi.jpg" alt="biologi" style="overflow: hidden; max-height: 320px;">
+              <div class="card-img-overlay p-0 align-items-center d-flex">
                 <h2 class="card-title bg-info text-center flex-fill text-dark">Biologi</h2>
               </div>
             </div>

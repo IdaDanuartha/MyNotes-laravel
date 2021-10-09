@@ -50,6 +50,7 @@
 
       {{-- my script --}}
       <script src="/js/script.js"></script>
+      <script src="/jquery/dist/jquery.slim.min.js"></script>
       <script src="/js/dashboard.js"></script>
       <script src="/sweetalert2/dist/sweetalert2.all.min.js"></script>
 

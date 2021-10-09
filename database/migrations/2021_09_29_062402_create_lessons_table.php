@@ -19,6 +19,7 @@ class CreateLessonsTable extends Migration
             $table->foreignId('category_id');
             $table->foreignId('user_id');
             $table->string('slug')->uniqie();
+            $table->string('image')->nullable();
             $table->text('kutipan');
             $table->text('body');
             $table->timestamp('waktu_posting')->nullable();
