@@ -2,7 +2,7 @@
 
 Project website sederhana yang isinya catatan mata pelajaran sekolah (masih belum selesai).
 
-Dibuat dengan :
+**Dibuat dengan :**
 1. Laravel
 2. Javascript
 3. CSS
