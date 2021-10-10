@@ -56,7 +56,7 @@
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <li><p class="dropdown-item disabled">Halo, {{ auth()->user()->username }}</p></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="/dashboard"><i class="fas fa-columns"></i> My Dashboard</a></li>
+                <li><a class="dropdown-item" href="/dashboard"><i class='bx bxs-dashboard'></i> My Dashboard</a></li>
 
                 <li>
                   <form action="/logout" method="POST">
